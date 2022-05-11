@@ -3,8 +3,9 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 import os
 from twilio.rest import Client
+from selenium.common.exceptions import NoSuchElementException
 
-client = Client('ASSD', 'AASTOKEN')
+client = Client('TWILIOSDI', 'TWILIOTOKEN')
 
 
 PATH = "/Users/josepachecosanchez/Documents/chromedriver"
@@ -24,7 +25,7 @@ time.sleep(2)
 
 id_box = driver.find_element(By.XPATH, "//input[@type='number']")
 id_box.click()
-id_box.send_keys("phonenumber")
+id_box.send_keys("phone_number")
 
 id_box = driver.find_element(By.XPATH, "//input[@type='password']")
 id_box.click()
@@ -56,9 +57,8 @@ while True:
             print("El valor es menos a 5 en este momento")
             time.sleep(900)
 
-        break
-    except ValueError:
-        print("Oops!  There was an error.  Trying again...")
+    except NoSuchElementException:
+        time.sleep(2)
 
 
 
