@@ -7,7 +7,7 @@ from functions import *
 PATH = "/Users/josepachecosanchez/Documents/chromedriver"
 driver = webdriver.Chrome(PATH)
 
-f = open("log-"+str(get_date())+".txt", "a")
+f = open("log-" + str(get_date()) + ".txt", "a")
 f.write("******* LOG " + str(get_date()) + " - " + str(get_time()) + " *******\n")
 
 f.write("Waiting for the page to load...\n")
@@ -33,7 +33,7 @@ try:
 
     id_box = driver.find_element(By.XPATH, "//input[@type='password']")
     id_box.click()
-    id_box.send_keys("password")
+    id_box.send_keys("pawssword")
     time.sleep(2)
     id_box = driver.find_element(By.CLASS_NAME, "login")
     id_box.click()
@@ -54,12 +54,12 @@ try:
                 time.sleep(15)
                 id_box = driver.find_element(By.XPATH, "//*[contains(text(), 'Vendido')]")
                 id_box.click()
-                get_time()
+                print(get_time())
                 time.sleep(15)
             else:
-                f = open("log-"+str(get_date())+".txt", "a")
+                print(get_time())
+                f = open("log-" + str(get_date()) + ".txt", "a")
                 processing = driver.find_element(By.XPATH, "(//uni-view[@class='division-num'])[1]").text
-                get_time()
                 f.write("You don't have enough money to sell, we will try again in 15 mins: \n")
                 f.write("TIME: " + str(get_time()) + "\nCurrent PROCESSING: " + processing + "\n")
                 f.close()
@@ -67,12 +67,11 @@ try:
                 time.sleep(900)
 
         except NoSuchElementException:
-            time = get_time()
+            f = open("log-" + str(get_date()) + ".txt", "a")
             f.write("There was an error TIME: " + str(get_time()) + " DATE: " + str(get_date()) + "\n")
             f.close()
             print("There was an error, trying again...")
             get_time()
-            restart()
             time.sleep(2)
 
 except:
