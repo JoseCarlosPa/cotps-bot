@@ -4,7 +4,7 @@ from selenium.webdriver.common.by import By
 import os
 from twilio.rest import Client
 
-client = Client('APISD', 'APISID')
+client = Client('ASSD', 'AASTOKEN')
 
 
 PATH = "/Users/josepachecosanchez/Documents/chromedriver"
@@ -24,11 +24,11 @@ time.sleep(2)
 
 id_box = driver.find_element(By.XPATH, "//input[@type='number']")
 id_box.click()
-id_box.send_keys("4274277200")
+id_box.send_keys("phonenumber")
 
 id_box = driver.find_element(By.XPATH, "//input[@type='password']")
 id_box.click()
-id_box.send_keys("Ngd_cotps*117")
+id_box.send_keys("password")
 time.sleep(2)
 id_box = driver.find_element(By.CLASS_NAME, "login")
 id_box.click()
