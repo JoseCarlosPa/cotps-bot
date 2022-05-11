@@ -4,7 +4,7 @@ from selenium.webdriver.common.by import By
 import os
 from twilio.rest import Client
 
-client = Client('AC037ffefb984a2b7a9492783dcb829726', 'b784b54915c13499f0c4dfafe635ae77')
+client = Client('APISD', 'APISID')
 
 
 PATH = "/Users/josepachecosanchez/Documents/chromedriver"
